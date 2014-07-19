@@ -17,7 +17,7 @@ var table2 = map[string]interface{}{
 }
 
 func TestTrieBasics(t *testing.T) {
-	trie := NewTrie()
+	trie := New()
 	for k, v := range table1 {
 		trie.Add(k, v)
 	}
@@ -39,7 +39,7 @@ func TestTrieBasics(t *testing.T) {
 
 func TestSet(t *testing.T) {
 	k := "foo"
-	trie := NewTrie()
+	trie := New()
 	trie.Add(k, 5)
 	trie.Add(k, 123)
 

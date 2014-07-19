@@ -6,8 +6,8 @@ type Trie struct {
 	value    interface{}
 }
 
-// NewTrie creates a new Trie.
-func NewTrie() *Trie {
+// New creates a new Trie.
+func New() *Trie {
 	return &Trie{
 		children: make(map[rune]*Trie),
 	}
@@ -16,7 +16,7 @@ func NewTrie() *Trie {
 func search(t *Trie, key string) *Trie {
 	for _, c := range key {
 		if _, ok := t.children[c]; !ok {
-			t.children[c] = NewTrie()
+			t.children[c] = New()
 		}
 		t = t.children[c]
 	}
