@@ -7,6 +7,7 @@ var table1 = map[string]interface{}{
 	"one":               10,
 	"some other string": 55,
 }
+
 var table2 = map[string]interface{}{
 	"blank1":  2,
 	"one1":    10,
@@ -33,5 +34,17 @@ func TestTrieBasics(t *testing.T) {
 		if ok {
 			t.Errorf("(Should not be in Trie, key %v) expected %v, got %v", k, false, ok)
 		}
+	}
+}
+
+func TestSet(t *testing.T) {
+	k := "foo"
+	trie := NewTrie()
+	trie.Add(k, 5)
+	trie.Add(k, 123)
+
+	v, _ := trie.Get(k)
+	if v != 123 {
+		t.Errorf("(Should be in Trie, key %v) expected %v, got %v", k, 123, v)
 	}
 }
